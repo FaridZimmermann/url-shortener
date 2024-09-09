@@ -1,0 +1,32 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "Simple URL shortener using MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaridZimmermann/url-shortener.git"
+  },
+  "keywords": [
+    "URLShortener",
+    "React",
+    "ExpressJS",
+    "MongoDB"
+  ],
+  "author": "Farid Zimmermann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FaridZimmermann/url-shortener/issues"
+  },
+  "homepage": "https://github.com/FaridZimmermann/url-shortener#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.1",
+    "mongoose": "^8.6.1"
+  }
+}
