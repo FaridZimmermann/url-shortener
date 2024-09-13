@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const connectDB = require("./src/database.js");
 const UrlModel = require("./src/models/url.js");
+const validateUrl = require("./src/helpers/validateUrl");
 
 const app = express();
 const port = process.env.port || 3000;
@@ -18,24 +19,30 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-app.post("/api/shorturl", async (req, res) => {
+app.post("/api/shorturl", async (req, res, next) => {
     const {url} = req.body;
     console.log("runs")
     try {
 
+        const isValid = await validateUrl(url);
+        console.log(isValid)
+
         const shortenedUrl = await UrlModel.createShortUrl();
-        console.log(shortenedUrl);
         const urlInst = new UrlModel({
             url, shortenedUrl: `${shortenedUrl}`
         });
         let doc = await urlInst.save();
         res.json(doc);
     } catch(err) {
-        console.error(err);
+        err.status = 404;
+        next(err);
     }
 })
 
-
+app.use((err, req, res, next) => {
+    console.error(err.message)
+    res.status(err.status ? err.status : 500).json({message: err.message})
+  })
 
 
 app.listen(port, () => {

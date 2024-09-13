@@ -1,5 +1,5 @@
 export default function useFetch(baseUrl) {
-
+//Hook to fetch data
     async function post(url, body) {
             const response = await fetch(`${baseUrl}${url}`
                 , {

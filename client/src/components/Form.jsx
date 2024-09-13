@@ -2,7 +2,7 @@ import { useState} from "react";
 import useFetch from "../hooks/useFetch.js";
 
 export default function Form(props) {
-
+//Form Component
     const [inputVal, setInputVal] = useState("");
     const {post} = useFetch("http://localhost:3000");
 
@@ -14,7 +14,7 @@ export default function Form(props) {
                 url: inputVal
             });
             setInputVal("");
-
+            console.log(data)
         } catch(err) {
             console.log(err);
         } 
