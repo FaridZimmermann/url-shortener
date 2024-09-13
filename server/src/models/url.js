@@ -17,7 +17,6 @@ urlSchema.statics.createShortUrl = function() {
     return new Promise(async (resolve, reject) => {
         try {
             const doc = await this.find().sort({field: "asc", _id: -1}).limit(1);
-            console.log(doc);
             let shortUrl;
 
             if(!doc.length) {

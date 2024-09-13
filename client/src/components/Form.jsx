@@ -1,13 +1,24 @@
 import { useState} from "react";
+import useFetch from "../hooks/useFetch.js";
 
 export default function Form(props) {
 
     const [inputVal, setInputVal] = useState("");
-    
-    function handleFormSubmit(e) {
+    const {post} = useFetch("http://localhost:3000");
+
+    async function handleFormSubmit(e) {
         e.preventDefault();
         console.log(inputVal)
-        setInputVal("");
+        try {   
+            const data = await post("/api/shorturl", {
+                url: inputVal
+            });
+            setInputVal("");
+
+        } catch(err) {
+            console.log(err);
+        } 
+        
       }
     
     return (
