@@ -2,7 +2,18 @@ const dns = require("node:dns");
 
 module.exports = function validateUrl(url) {
     //function to check url authenticity
-    url = url.replace("http://", "").replace("https://", ""); //cleanup for dns lookup to work
+
+    //reject non http urls to use res.redirect
+    if (!url.startsWith("https://") && !url.startsWith("http://")) {
+        let err = new Error("URL needs to include protocol (HTTP/HTTPS)");
+        err.status = 400;
+        throw err;
+        return;
+    }
+
+   //cleanup for dns lookup to work
+    if (url.startsWith("https://")) url = url.slice(8);
+    if (url.startsWith("http://")) url = url.slice(7);
 
     return new Promise((resolve, reject) => {
         dns.lookup(url, (err, address, family) => {
@@ -13,4 +24,5 @@ module.exports = function validateUrl(url) {
             resolve(address);
         })
     })
+
 }

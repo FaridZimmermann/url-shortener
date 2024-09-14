@@ -9,8 +9,14 @@ export default function useFetch(baseUrl) {
                     },
                     body: JSON.stringify(body)
                 });
-            const data = await response.json();
-            return data;
+                const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message);
+            } else {
+                return data;
+    
+            }
     }
 
     return {post};
