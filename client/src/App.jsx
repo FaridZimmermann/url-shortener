@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./components/Form.jsx";
 import Error from "./components/Error.jsx";
+import Header from "./components/Header.jsx";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   }
   return (
     <>
+    <Header />
     {error && <Error error={error} />}
     <Form onError={handleError} />
     </>

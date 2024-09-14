@@ -16,7 +16,6 @@ export default function Form(props) {
             setInputVal("");
             console.log(data)
         } catch(err) {
-           
             props.onError(err);
         } 
         
