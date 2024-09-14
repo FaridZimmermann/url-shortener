@@ -41,10 +41,11 @@ app.get("/api/shorturl/:url", async (req, res, next) => {
 app.post("/api/shorturl", async (req, res, next) => {
     //Handler to create new short URL based on valid url
     let {url} = req.body;
+    url = url.toLowerCase();
     try {
 
-        const isValid = await validateUrl(url);
-
+        await validateUrl(url);
+        
         const shortenedUrl = await UrlModel.createShortUrl();
         const urlInst = new UrlModel({
             url, shortenedUrl: `${shortenedUrl}`

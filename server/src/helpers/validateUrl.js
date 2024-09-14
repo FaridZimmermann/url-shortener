@@ -8,7 +8,6 @@ module.exports = function validateUrl(url) {
         let err = new Error("URL needs to include protocol (HTTP/HTTPS)");
         err.status = 400;
         throw err;
-        return;
     }
 
    //cleanup for dns lookup to work

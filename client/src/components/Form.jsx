@@ -7,8 +7,8 @@ export default function Form(props) {
     const {post} = useFetch("http://localhost:3000");
 
     async function handleFormSubmit(e) {
+        props.onError({});
         e.preventDefault();
-        console.log(inputVal)
         try {   
             const data = await post("/api/shorturl", {
                 url: inputVal
@@ -16,7 +16,8 @@ export default function Form(props) {
             setInputVal("");
             console.log(data)
         } catch(err) {
-            console.log(err);
+           
+            props.onError(err);
         } 
         
       }
