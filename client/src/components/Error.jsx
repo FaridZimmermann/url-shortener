@@ -1,8 +1,8 @@
-
+import "./Error.css";
 
 export default function Error({error}) {
 
     return (
-        <div className="error"><p>{error.message}</p></div>
+        <div className="error"><p>{error}</p></div>
     )
 }

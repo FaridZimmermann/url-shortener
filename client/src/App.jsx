@@ -6,10 +6,10 @@ import "./App.css";
 
 function App() {
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
 
   function handleError(requestError) {
-    setError(requestError);
+    setError(requestError.message);
   }
   return (
     <>
