@@ -9,13 +9,10 @@ module.exports = function validateUrl(url) {
         err.status = 400;
         throw err;
     }
-
-   //cleanup for dns lookup to work
-    if (url.startsWith("https://")) url = url.slice(8);
-    if (url.startsWith("http://")) url = url.slice(7);
+    const urlHost = new URL(url).hostname;
 
     return new Promise((resolve, reject) => {
-        dns.lookup(url, (err, address, family) => {
+        dns.lookup(urlHost, (err, address, family) => {
             if (err) {
                 reject(new Error("URL is not valid or does not exist"));
             }
