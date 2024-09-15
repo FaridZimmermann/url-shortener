@@ -9,10 +9,10 @@ module.exports = function validateUrl(url) {
         err.status = 400;
         throw err;
     }
-    const urlHost = new URL(url).hostname;
+    const urlHost = new URL(url);
 
     return new Promise((resolve, reject) => {
-        dns.lookup(urlHost, (err, address, family) => {
+        dns.lookup(urlHost.hostname, (err, address, family) => {
             if (err) {
                 reject(new Error("URL is not valid or does not exist"));
             }
