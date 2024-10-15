@@ -8,13 +8,14 @@ export default function Form(props) {
 
     async function handleFormSubmit(e) {
         props.onError({});
+        props.onSuccess({});
         e.preventDefault();
         try {   
             const data = await post("/api/shorturl", {
                 url: inputVal
             });
             setInputVal("");
-            console.log(data)
+            props.onSuccess(data);
         } catch(err) {
             props.onError(err);
         } 
