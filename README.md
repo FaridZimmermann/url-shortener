@@ -11,7 +11,8 @@ Setup your own MongoDB instance or connect to your cloud-based solution, then ad
 - cd .\server\
 - npm install
 - npm run start
-- cd ..\client\
+- Open new Terminal in root .\url-shortener\
+- cd .\client\
 - npm install
 - npm run dev
 
