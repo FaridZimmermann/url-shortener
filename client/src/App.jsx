@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
 
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState();
+  const [success, setSuccess] = useState({});
 
   function handleError(requestError) {
     setError(requestError.message);
@@ -22,7 +22,7 @@ function App() {
     <>
     <Header />
     {error && <Error error={error} />}
-    {success && <Success returnObj={success} />}
+    {Object.keys(success).length > 0 && <Success returnObj={success} />}
     <Form onError={handleError} onSuccess={handleSuccess}/>
     </>
   )
