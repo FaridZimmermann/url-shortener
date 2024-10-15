@@ -16,9 +16,7 @@ export default function Form(props) {
             });
             setInputVal("");
             props.onSuccess(data);
-            console.log("also ran")
         } catch(err) {
-            console.log("error ran")
             props.onError(err);
         } 
         
