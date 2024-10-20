@@ -2,6 +2,9 @@
 
 [Usage]:
 
+
+
+Set up on your machine
 [Important]:
 To setup demo usage a working MongoDB connection is required.
 Setup your own MongoDB instance or connect to your cloud-based solution, then add in the root of .\server\ folder an ".env" file with the key [MONGOURI=YourDatabaseURI]
@@ -14,6 +17,8 @@ Setup your own MongoDB instance or connect to your cloud-based solution, then ad
 - Open new Terminal in root .\url-shortener\
 - cd .\client\
 - npm install
-- npm run dev
+- npm run build
+- visit project at localhost:3000
+
 
 
