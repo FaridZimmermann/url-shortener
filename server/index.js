@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const serverless = require("serverless-http");
 const path = require("path");
 const cors = require("cors");
 const connectDB = require("./src/database.js");
