@@ -4,7 +4,7 @@ import useFetch from "../hooks/useFetch.js";
 export default function Form(props) {
 //Form Component
     const [inputVal, setInputVal] = useState("");
-    const {post} = useFetch("http://localhost:3000");
+    const {post} = useFetch("");
 
     async function handleFormSubmit(e) {
         props.onError({});
