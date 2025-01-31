@@ -23,5 +23,4 @@ Setup your own MongoDB instance or connect to your cloud-based solution, then ad
 
 **BACKEND** - validating URLs internally using built-in node:dns package to do an independent DNS lookup. Edge cases, as the node:dns package itself doesn`t check for valid protocols (http/https). </br>
 
-**FRONTEND** - creating custom useFetch hook. Also, issue regarding responsive design on different mobile sizes as list items that display each weather day might have flexible width based on description length. I have not found a proper solution yet.
-
+**FRONTEND** - creating custom useFetch hook
