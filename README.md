@@ -5,8 +5,12 @@
 
 <h4>[Important]:</h4>
 To setup demo usage a working MongoDB connection is required.
-Setup your own MongoDB instance or connect to your cloud-based solution, then add in the root of the project an ".env" file with the key [MONGOURI=YourDatabaseURI]/br>
+Setup your own MongoDB instance or connect to your cloud-based solution, then add in the root of the project an ".env" file with the key [MONGOURI=YourDatabaseURI]
 </br>
+
+<h4>[Usage]:</h4>
+</br>
+
 - git clone https://github.com/FaridZimmermann/url-shortener.git
 - npm run build
 - npm run start
